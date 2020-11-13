@@ -2,8 +2,8 @@ package com.example.booksmart.People;
 
 public class Person {
 
-    String firstName, lastName;
-    String fullName;
+    private String firstName, lastName;
+    private String fullName;
 
     public Person(String name) {
 
@@ -28,6 +28,9 @@ public class Person {
                     this.lastName += nameParts[i];
                 }
         }
+
+        this.fullName = this.firstName+ " "+this.lastName;
+
     }
 
     public Person(String firstName, String lastName) {
@@ -59,12 +62,16 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
+
         if (o == this)
             return true;
+
         if (!(o instanceof Person))
             return false;
+
         if (o.hashCode() == this.hashCode())
             return true;
+
         Person toCompare = (Person) o;
 
         return fullName.contains((toCompare.getFullName())) || fullName.contains(toCompare.getFirstName())

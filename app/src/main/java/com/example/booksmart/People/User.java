@@ -1,19 +1,37 @@
 package com.example.booksmart.People;
 
+import com.example.booksmart.Elements.Book;
+
+import java.util.ArrayList;
+
 public class User {
 
-    int uniqueId;
-    Person name;
-    String email;
-    long mobile;
-    String password;
+    private final int uniqueId;
+    private final Person name;
+    private final String email;
+    private final long mobile;
+    private final String password;
+    private ArrayList<Book> userBooks;
 
-    public User(Person name, String email, long mobile, String password, int id){
+    public User(Person name, String email, long mobile, String password, int id) {
         this.name = name;
         this.email = email;
         this.mobile = mobile;
         this.password = password;
         this.uniqueId = id;
+        this.userBooks = new ArrayList<>();
+    }
+
+    public void addBook(Book book) {
+        this.userBooks.add(book);
+    }
+
+    public void removeBook(Book book) {
+        this.userBooks.remove(book);
+    }
+
+    public ArrayList<Book> getUserBooks() {
+        return new ArrayList<>(this.userBooks);
     }
 
     public int getUniqueId() {
@@ -35,4 +53,10 @@ public class User {
     public long getMobile() {
         return mobile;
     }
+
+    @Override
+    public String toString() {
+        return this.uniqueId + ": " + name.getFullName() + "( " + this.email + ", " + this.mobile + ") [" + this.password + "]";
+    }
+
 }

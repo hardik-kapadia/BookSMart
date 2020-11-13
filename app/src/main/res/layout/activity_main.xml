@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".MainActivity">
+    tools:context="entry.MainActivity">
 
     <Button
         android:id="@+id/signUp"
@@ -16,18 +16,9 @@
         android:layout_marginStart="164dp"
         android:layout_marginTop="48dp"
         android:background="#03A9F4"
+        android:onClick="goToSignUp"
         android:text="Sign Up"
         android:textColor="#FFFFFF" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="321dp"
-        android:layout_height="184dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="42dp"
-        app:srcCompat="@drawable/Daco_4265718" />
 
     <EditText
         android:id="@+id/getUserName"
@@ -89,5 +80,13 @@
         android:onClick="login"
         android:text="Login"
         android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="377dp"
+        android:layout_height="328dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="97dp"
+        android:src="@drawable/logot" />
 
 </RelativeLayout>
