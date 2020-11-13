@@ -1,5 +1,5 @@
 
-package entry;
+package com.example.booksmart.entry;
 
 import androidx.appcompat.app.AppCompatActivity;
 

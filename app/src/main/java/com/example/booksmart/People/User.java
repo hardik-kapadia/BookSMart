@@ -56,7 +56,7 @@ public class User {
 
     @Override
     public String toString() {
-        return this.uniqueId + ": " + name.getFullName() + "( " + this.email + ", " + this.mobile + ") [" + this.password + "]";
+        return this.uniqueId + ": " + name.getFullName() + "\n( " + this.email + ", " + this.mobile + ") \n[" + this.password + "]";
     }
 
 }

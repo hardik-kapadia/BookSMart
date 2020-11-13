@@ -1,10 +1,8 @@
-package entry;
+package com.example.booksmart.entry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -75,8 +73,9 @@ public class SignUp extends AppCompatActivity {
                         if (pass.length() >= 8) {
                             if (pass.equals(pass2)) {
                                 int id = MainActivity.data.getRandomUniqueId();
+                                Log.i("password", pass);
                                 newUser = new User(new Person(firstName, lastName), emailId, Long.parseLong(phoneNumber), pass, id);
-                                Log.i("New User creation","Success");
+                                Log.i("New User creation", "Success");
                             } else error = 5;
                         } else error = 4;
                     } else error = 3;
@@ -86,8 +85,8 @@ public class SignUp extends AppCompatActivity {
 
         if (newUser != null) {
             MainActivity.data.setCurrentUser(newUser);
-            Intent i = new Intent(getApplicationContext(),testActivity.class);
-            startActivity(i);
+            // Intent i = new Intent(getApplicationContext(), testActivity.class);
+            // startActivity(i);
         } else {
             Toast.makeText(getApplicationContext(), errorToasts[error], Toast.LENGTH_SHORT).show();
         }
