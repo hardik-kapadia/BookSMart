@@ -73,7 +73,6 @@ public class SignUp extends AppCompatActivity {
                         if (pass.length() >= 8) {
                             if (pass.equals(pass2)) {
                                 int id = MainActivity.data.getRandomUniqueId();
-                                Log.i("password", pass);
                                 newUser = new User(new Person(firstName, lastName), emailId, Long.parseLong(phoneNumber), pass, id);
                                 Log.i("New User creation", "Success");
                             } else error = 5;

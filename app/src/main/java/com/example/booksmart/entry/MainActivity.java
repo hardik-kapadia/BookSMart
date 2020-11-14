@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
             data.readUsers();
             data.readBooks();
             Log.i("data", "Initializing");
+            Log.i("Size of Users", Integer.toString(data.getAllUsers().size()));
+            Log.i("Size of Books", Integer.toString(data.getAllBooks().size()));
         }
     }
 }

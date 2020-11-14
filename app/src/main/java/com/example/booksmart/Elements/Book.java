@@ -1,26 +1,50 @@
 package com.example.booksmart.Elements;
 
 import com.example.booksmart.People.Person;
+import com.example.booksmart.People.User;
+import com.example.booksmart.entry.MainActivity;
 
 public class Book {
 
-    private final String name;
+    private final String name; //
     private final Person author;
-    private final Person giver;
-    private final int year;
-    private final int uniqueId;
-    private final int giverId;
+    private final User giver; //
+    private final int year; //
+    private final int uniqueId; //
+    private final int giverId; //
 
     Categories category;
 
-    public Book(String name, Person author, Person giver, int year, int uniqueId, int giverId, Categories category) {
+    public Book(String name, Person author, User giver, int year, int uniqueId, Categories category) {
         this.name = name;
         this.author = author;
         this.giver = giver;
         this.year = year;
         this.uniqueId = uniqueId;
+        this.giverId = this.giver.getUniqueId();
+        this.category = category;
+    }
+
+    public Book(String name, Person author, int year, int uniqueId, int giverId, Categories category) {
+        this.name = name;
+        this.author = author;
+        this.year = year;
+        this.uniqueId = uniqueId;
         this.giverId = giverId;
         this.category = category;
+
+        User giving = null;
+
+        if (MainActivity.data.getAllUsers() != null) {
+            for (User user : MainActivity.data.getAllUsers()) {
+                if (user.getUniqueId() == uniqueId) {
+                    giving = user;
+                    break;
+                }
+            }
+        }
+
+        this.giver = giving;
     }
 
     @Override
@@ -44,7 +68,7 @@ public class Book {
         return giverId;
     }
 
-    public Person getGiver() {
+    public User getGiver() {
         return giver;
     }
 

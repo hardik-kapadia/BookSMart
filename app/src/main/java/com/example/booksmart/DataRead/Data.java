@@ -1,8 +1,12 @@
 package com.example.booksmart.DataRead;
 
+import android.util.Log;
+
 import com.example.booksmart.Elements.Book;
+import com.example.booksmart.Elements.Categories;
 import com.example.booksmart.People.Person;
 import com.example.booksmart.People.User;
+import com.example.booksmart.entry.MainActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +23,9 @@ public class Data {
 
     private User currentUser;
 
-    public Data(){
+    private final Categories[] allCategories = Categories.values();
+
+    public Data() {
         this.users = new ArrayList<>();
         this.books = new ArrayList<>();
         this.currentUser = null;
@@ -38,7 +44,10 @@ public class Data {
     }
 
     public void readUsers() {
-        File uFile = new File("src/Data/Users.txt");
+
+        File uFile = new File("src/main/java/com/example/booksmart/Data/Users.csv");
+
+        Log.i("User file", Boolean.toString(uFile.isFile()));
 
         ArrayList<User> users = new ArrayList<>();
 
@@ -47,17 +56,18 @@ public class Data {
             while (readUsers.hasNextLine()) {
 
                 String line = readUsers.nextLine();
-                String[] parts = line.split(" ");
+                String[] parts = line.split(",");
 
                 int id = Integer.parseInt(parts[0]);
                 String email = parts[1];
                 long mobile = Long.parseLong(parts[2]);
                 String pw = parts[3];
 
-                String name = "";
-                String fName, lName;
+                String name = parts[5];
 
-                if (parts.length == 6) {
+                users.add(new User(new Person(name), email, mobile, pw, id));
+
+                /*if (parts.length == 6) {
                     fName = parts[4];
                     lName = parts[5];
                     users.add(new User(new Person(fName, lName), email, mobile, pw, id));
@@ -66,19 +76,22 @@ public class Data {
                         name += parts[i];
                     }
                     users.add(new User(new Person(name), email, mobile, pw, id));
-                }
+                }*/
 
             }
         } catch (FileNotFoundException fnfe) {
-            System.out.println("Users File not Found");
+            Log.i("User's File", "Not found");
         }
 
+        Log.i("Users in users", Integer.toString(users.size()));
+
         this.users = users;
+
     }
 
     public void writeUsers() {
 
-        File uFile = new File("src/Data/Users.txt");
+        File uFile = new File("com/example/booksmart/Data/Users.csv");
 
         try (FileWriter fw = new FileWriter(uFile)) {
 
@@ -93,7 +106,7 @@ public class Data {
 
         outer:
         while (true) {
-            int temp = r.nextInt(1000);
+            int temp = r.nextInt(10000);
             for (User user : users) {
                 if (user.getUniqueId() == temp) {
                     continue outer;
@@ -107,26 +120,47 @@ public class Data {
 
     public void readBooks() {
 
-        File bFile = new File("src/Data/Books.txt");
+        File bFile = new File("com/example/booksmart/Data/Books.csv");
 
-        ArrayList<Book> books;
+        ArrayList<Book> books = new ArrayList<>();
 
         try (Scanner readBooks = new Scanner(bFile)) {
             while (readBooks.hasNextLine()) {
 
                 String line = readBooks.nextLine();
-                String[] parts = line.split(" ");
+                String[] parts = line.split(",");
 
+                if (parts.length == 6) {
 
+                    int bookId = Integer.parseInt(parts[0].trim());
+                    int userId = Integer.parseInt(parts[1].trim());
+
+                    int year = Integer.parseInt(parts[2].trim());
+                    String name = parts[3].replace("$", ",").trim();
+                    Person author = new Person(parts[4].trim());
+
+                    Categories category = allCategories[Integer.parseInt(parts[5])];
+
+                    books.add(new Book(name, author, year, bookId, userId, category));
+
+                } else {
+                    throw new IllegalArgumentException();
+                }
             }
         } catch (FileNotFoundException fnfe) {
             System.out.println("Books File not Found");
         }
 
+        MainActivity.data.setBooks(books);
+
     }
 
     public ArrayList<User> getAllUsers() {
-        return this.users;
+        return new ArrayList<>(this.users);
+    }
+
+    public ArrayList<Book> getAllBooks() {
+        return new ArrayList<>(this.books);
     }
 
 
