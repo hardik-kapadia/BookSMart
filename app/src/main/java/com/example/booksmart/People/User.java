@@ -10,7 +10,7 @@ public class User {
     private final Person name;
     private final String email;
     private final long mobile;
-    private final String password;
+    private String password;
     private ArrayList<Book> userBooks;
 
     public User(Person name, String email, long mobile, String password, int id) {
@@ -52,6 +52,10 @@ public class User {
 
     public long getMobile() {
         return mobile;
+    }
+
+    public void setNewPassword(String password) {
+        this.password = password;
     }
 
     @Override

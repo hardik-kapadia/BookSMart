@@ -12,16 +12,19 @@ public class Home extends AppCompatActivity {
 
     Intent intent;
 
-    public void goToSearch(View view){
-
+    public void goToSearch(View view) {
+        intent = new Intent(getApplicationContext(), Search.class);
+        startActivity(intent);
     }
 
-    public void goToGive(View view){
-
+    public void goToGive(View view) {
+        intent = new Intent(getApplicationContext(), give.class);
+        startActivity(intent);
     }
 
-    public void goToProfile(View view){
-
+    public void goToProfile(View view) {
+        intent = new Intent(getApplicationContext(), profile.class);
+        startActivity(intent);
     }
 
     @Override

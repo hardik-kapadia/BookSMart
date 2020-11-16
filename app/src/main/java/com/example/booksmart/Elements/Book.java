@@ -6,12 +6,12 @@ import com.example.booksmart.entry.MainActivity;
 
 public class Book {
 
-    private final String name; //
+    private final String name;
     private final Person author;
-    private final User giver; //
-    private final int year; //
-    private final int uniqueId; //
-    private final int giverId; //
+    private final User giver;
+    private final int year;
+    private final int uniqueId;
+    private final int giverId;
 
     Categories category;
 
@@ -77,6 +77,11 @@ public class Book {
     }
 
     @Override
+    public String toString() {
+        return this.name + " ";
+    }
+
+    @Override
     public boolean equals(Object obj) {
 
         if (this == obj) {
@@ -92,6 +97,10 @@ public class Book {
         Book compareTo = (Book) obj;
 
         return (this.name.contains(compareTo.getName()) || this.author.equals(compareTo.getAuthor()));
+    }
+
+    public Boolean matches(String searched) {
+        return (this.name.contains(searched) || this.author.equals(new Person(searched)));
     }
 
 }

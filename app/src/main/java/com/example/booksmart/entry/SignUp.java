@@ -2,6 +2,7 @@ package com.example.booksmart.entry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.booksmart.People.Person;
 import com.example.booksmart.People.User;
 import com.example.booksmart.R;
+import com.example.booksmart.home.Home;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -72,8 +74,10 @@ public class SignUp extends AppCompatActivity {
                     if (validatePhone(phoneNumber) != null) {
                         if (pass.length() >= 8) {
                             if (pass.equals(pass2)) {
+
                                 int id = MainActivity.data.getRandomUniqueId();
                                 newUser = new User(new Person(firstName, lastName), emailId, Long.parseLong(phoneNumber), pass, id);
+
                                 Log.i("New User creation", "Success");
                             } else error = 5;
                         } else error = 4;
@@ -84,8 +88,9 @@ public class SignUp extends AppCompatActivity {
 
         if (newUser != null) {
             MainActivity.data.setCurrentUser(newUser);
-            // Intent i = new Intent(getApplicationContext(), testActivity.class);
-            // startActivity(i);
+            MainActivity.data.addUser(newUser);
+            Intent i = new Intent(getApplicationContext(), Home.class);
+            startActivity(i);
         } else {
             Toast.makeText(getApplicationContext(), errorToasts[error], Toast.LENGTH_SHORT).show();
         }

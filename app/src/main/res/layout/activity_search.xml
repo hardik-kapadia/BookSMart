@@ -2,33 +2,41 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg2"
-    tools:context="com.example.booksmart.home.Home">
+    tools:context=".home.Search">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="71dp"
+        android:layout_height="70dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="268dp"
-        android:text="Book S Mart is a place where \npeople can exchange used and new\nbooks of all types.\n\nEvery year millions of books\nare sent to recycling although they can be used again\n\nOur goal is to provide these books to those in need as well as Help the environment"
-        android:textAlignment="center"
-        android:textColor="#3F51B5"
-        android:textSize="22sp"
+        android:layout_marginTop="36dp"
+        android:onClick="getResults"
+        app:layout_constraintStart_toEndOf="@+id/searching"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_search" />
+
+    <EditText
+        android:id="@+id/searching"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="Enter Search Data"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="337dp"
-        android:layout_height="242dp"
-        android:layout_marginStart="36dp"
+    <ListView
+        android:id="@+id/results"
+        android:layout_width="434dp"
+        android:layout_height="673dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logot" />
+        app:layout_constraintTop_toBottomOf="@+id/searching">
+
+    </ListView>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -47,7 +55,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/home"
-            android:baselineAligned="false"
+            android:onClick="goToHome"
             app:srcCompat="@android:color/transparent" />
 
         <ImageButton
@@ -57,7 +65,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/search"
-            android:onClick="goToSearch"
             app:srcCompat="@android:color/transparent" />
 
         <ImageButton
@@ -87,6 +94,5 @@
             app:srcCompat="@android:color/transparent" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.booksmart.home.Home"></activity>
-        <activity android:name="com.example.booksmart.entry.SignUp" />
-        <activity android:name="com.example.booksmart.entry.MainActivity">
+        <activity android:name=".home.give"></activity>
+        <activity android:name=".home.Search" />
+        <activity android:name=".home.profile" />
+        <activity android:name=".home.Home" />
+        <activity android:name=".entry.SignUp" />
+        <activity android:name=".entry.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
