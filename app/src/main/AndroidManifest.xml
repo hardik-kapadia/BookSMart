@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.give"></activity>
+        <activity android:name=".Elements.BookProfile"></activity>
+        <activity android:name=".home.give" />
         <activity android:name=".home.Search" />
         <activity android:name=".home.profile" />
         <activity android:name=".home.Home" />

@@ -25,6 +25,11 @@ public class Book {
         this.category = category;
     }
 
+
+    public String getCategory() {
+        return category.toString();
+    }
+
     public Book(String name, Person author, int year, int uniqueId, int giverId, Categories category) {
         this.name = name;
         this.author = author;
@@ -37,14 +42,22 @@ public class Book {
 
         if (MainActivity.data.getAllUsers() != null) {
             for (User user : MainActivity.data.getAllUsers()) {
-                if (user.getUniqueId() == uniqueId) {
+                System.out.println("IN BOOK, this user's id: " + giverId);
+                if (user.getUniqueId() == giverId) {
                     giving = user;
                     break;
                 }
             }
+        } else {
+            System.out.println("All users have not been read yet");
+        }
+
+        if (giving == null) {
+            System.out.println("No giver found for id" + giverId);
         }
 
         this.giver = giving;
+
     }
 
     @Override
@@ -100,7 +113,7 @@ public class Book {
     }
 
     public Boolean matches(String searched) {
-        return (this.name.contains(searched) || this.author.equals(new Person(searched)));
+        return (this.name.toLowerCase().contains(searched.toLowerCase()) || this.author.equals(new Person(searched)));
     }
 
 }

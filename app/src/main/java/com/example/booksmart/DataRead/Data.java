@@ -2,6 +2,7 @@ package com.example.booksmart.DataRead;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import com.example.booksmart.Elements.Book;
 import com.example.booksmart.Elements.Categories;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Data {
@@ -25,6 +27,7 @@ public class Data {
     private final Context context;
 
     private User currentUser;
+
 
     private final Categories[] allCategories = Categories.values();
 
@@ -108,6 +111,7 @@ public class Data {
 
                     int bookId = Integer.parseInt(parts[0].trim());
                     int userId = Integer.parseInt(parts[1].trim());
+                    Log.i("Book's Giver's User id", Integer.toString(userId));
 
                     int year = Integer.parseInt(parts[2].trim());
                     String name = parts[3].replace("$", ",").trim();
@@ -115,7 +119,16 @@ public class Data {
 
                     Categories category = allCategories[Integer.parseInt(parts[5])];
 
-                    books.add(new Book(name, author, year, bookId, userId, category));
+                    Book tempBook = new Book(name, author, year, bookId, userId, category);
+
+                    books.add(tempBook);
+                    for (User user : users) {
+                        System.out.println("This user's id" + user.getUniqueId());
+                        if (user.getUniqueId() == userId) {
+                            user.addUserBook(tempBook);
+                            break;
+                        }
+                    }
 
                 } else {
                     throw new IllegalArgumentException();
@@ -127,6 +140,20 @@ public class Data {
         }
 
         this.books = books;
+
+        Log.i("Book Name", books.get(0).getGiver().getName().getFullName());
+
+
+    }
+
+    public Book getBookFromId(int id) {
+
+        for (Book book : books) {
+            if (book.getUniqueId() == id) {
+                return book;
+            }
+        }
+        return null;
 
     }
 
@@ -141,7 +168,11 @@ public class Data {
         }
     }
 
-    public int getRandomUniqueId() {
+    public ArrayList<Categories> getCategories() {
+        return new ArrayList<>(Arrays.asList(Categories.values()));
+    }
+
+    public int getRandomUniqueUserId() {
 
         Random r = new Random();
 
@@ -156,6 +187,21 @@ public class Data {
             return temp;
         }
 
+    }
+
+    public int getRandomUniqueBookId() {
+        Random r = new Random();
+
+        outer:
+        while (true) {
+            int temp = r.nextInt(10000);
+            for (Book book : books) {
+                if (book.getUniqueId() == temp) {
+                    continue outer;
+                }
+            }
+            return temp;
+        }
     }
 
 

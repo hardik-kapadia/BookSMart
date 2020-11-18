@@ -34,6 +34,10 @@ public class User {
         return new ArrayList<>(this.userBooks);
     }
 
+    public void addUserBook(Book book) {
+        this.userBooks.add(book);
+    }
+
     public int getUniqueId() {
         return uniqueId;
     }
