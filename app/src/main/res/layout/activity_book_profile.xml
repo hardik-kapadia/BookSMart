@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Elements.BookProfile">
+    android:background="@drawable/bg4"
+    tools:context=".profiles.BookProfile">
 
     <TextView
         android:id="@+id/name"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
         android:text="Name Of the Book"
+        android:textColor="#060E5A"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="Author's Name"
+        android:textColor="#060E5A"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -35,45 +38,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="(1969)"
+        android:textColor="#060E5A"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bAuthor" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/removeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:background="#2196F3"
         android:text="Remove"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="591dp" />
+        app:layout_constraintTop_toBottomOf="@+id/giverMobile" />
 
     <TextView
         android:id="@+id/giverFName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="80dp"
         android:text="Fname"
+        android:textColor="#060E5A"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.306"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bYear" />
-
-    <TextView
-        android:id="@+id/giverLName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="68dp"
-        android:text="lName"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/giverFName1"
         app:layout_constraintTop_toBottomOf="@+id/bYear" />
 
     <TextView
@@ -82,6 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="TextView"
+        android:textColor="#060E5A"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,10 +87,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="TextView"
+        android:textColor="#060E5A"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/giverEmail" />
+
+    <TextView
+        android:id="@+id/bCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="52dp"
+        android:text="TextView"
+        android:textColor="#060E5A"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/bYear"
+        app:layout_constraintTop_toBottomOf="@+id/bAuthor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".home.profile">
+    android:background="@drawable/bg4"
+    tools:context=".profiles.profile">
 
     <TextView
         android:id="@+id/firstName"
@@ -14,6 +14,8 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="80dp"
         android:text="first Name"
+        android:textColor="#060E5A"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +26,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="80dp"
         android:text="Last Name"
+        android:textColor="#060E5A"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/firstName"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,6 +38,8 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="28dp"
         android:text="emailId@example.com"
+        android:textColor="#060E5A"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
@@ -44,6 +50,8 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="32dp"
         android:text="123456789"
+        android:textColor="#060E5A"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -51,7 +59,7 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="36dp"
         android:background="#2196F3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -121,7 +129,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
         app:layout_constraintVertical_bias="0.0" />

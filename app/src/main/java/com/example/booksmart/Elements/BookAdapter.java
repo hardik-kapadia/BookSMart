@@ -38,10 +38,12 @@ public class BookAdapter extends ArrayAdapter<Book> {
         TextView bName = (TextView) view.findViewById(R.id.nameOfB);
         TextView bYear = (TextView) view.findViewById(R.id.year);
         TextView bAuthor = (TextView) view.findViewById(R.id.author);
+        TextView categoryB = (TextView) view.findViewById(R.id.categoryShow);
 
         bName.setText(book.getName());
         bYear.setText(Integer.toString(book.getYear()));
         bAuthor.setText(book.getAuthor().getFullName());
+        categoryB.setText(book.getCategory());
 
         return view;
     }

@@ -13,16 +13,16 @@ import android.widget.TextView;
 
 import com.example.booksmart.Elements.Book;
 import com.example.booksmart.Elements.BookAdapter;
-import com.example.booksmart.Elements.BookProfile;
+import com.example.booksmart.profiles.BookProfile;
 import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
+import com.example.booksmart.profiles.profile;
 
 import java.util.ArrayList;
 
 public class Search extends AppCompatActivity {
 
     ListView resultView;
-    public ArrayList<Book> matching;
 
     Intent i;
 
@@ -56,6 +56,8 @@ public class Search extends AppCompatActivity {
             }
         } else {
             matching = new ArrayList<>(MainActivity.data.getAllBooks());
+            System.out.println(MainActivity.data.getAllBooks().toString());
+            Log.i("Serach parameter", "is empty");
         }
 
         ArrayAdapter<Book> resultVals = new BookAdapter(this, 0, matching);
@@ -68,7 +70,6 @@ public class Search extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Book book = (Book) parent.getItemAtPosition(position);
-                Log.i("Item Clicked", book.getName());
                 Intent i = new Intent(Search.this, BookProfile.class);
                 i.putExtra("bookId", book.getUniqueId());
                 startActivity(i);

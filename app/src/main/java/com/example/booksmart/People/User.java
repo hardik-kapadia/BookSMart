@@ -22,10 +22,6 @@ public class User {
         this.userBooks = new ArrayList<>();
     }
 
-    public void addBook(Book book) {
-        this.userBooks.add(book);
-    }
-
     public void removeBook(Book book) {
         this.userBooks.remove(book);
     }

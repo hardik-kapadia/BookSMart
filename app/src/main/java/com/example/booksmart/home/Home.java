@@ -3,10 +3,14 @@ package com.example.booksmart.home;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.booksmart.R;
+import com.example.booksmart.entry.MainActivity;
+import com.example.booksmart.profiles.profile;
 
 public class Home extends AppCompatActivity {
 
@@ -27,9 +31,17 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void refresh(View view) {
+
+        MainActivity.data.readUsersFromRes();
+        MainActivity.data.readBooksFromRes();
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
     }
 }

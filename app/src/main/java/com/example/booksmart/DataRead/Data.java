@@ -2,10 +2,8 @@ package com.example.booksmart.DataRead;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 
 import com.example.booksmart.Elements.Book;
-import com.example.booksmart.Elements.Categories;
 import com.example.booksmart.People.Person;
 import com.example.booksmart.People.User;
 import com.example.booksmart.R;
@@ -18,6 +16,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Data {
@@ -28,8 +27,7 @@ public class Data {
 
     private User currentUser;
 
-
-    private final Categories[] allCategories = Categories.values();
+    private static final String[] categories = {"Fiction", "Academics", "Self-Help", "Classics"};
 
     public Data(Context context) {
         this.users = new ArrayList<>();
@@ -98,7 +96,7 @@ public class Data {
 
         String line;
 
-        Categories[] allCategories = Categories.values();
+        // Categories[] allCategories = Categories.values();
 
         try {
             while (true) {
@@ -111,19 +109,17 @@ public class Data {
 
                     int bookId = Integer.parseInt(parts[0].trim());
                     int userId = Integer.parseInt(parts[1].trim());
-                    Log.i("Book's Giver's User id", Integer.toString(userId));
 
                     int year = Integer.parseInt(parts[2].trim());
                     String name = parts[3].replace("$", ",").trim();
                     Person author = new Person(parts[4].trim());
 
-                    Categories category = allCategories[Integer.parseInt(parts[5])];
+                    String category = Data.categories[Integer.parseInt(parts[5])];
 
                     Book tempBook = new Book(name, author, year, bookId, userId, category);
 
                     books.add(tempBook);
                     for (User user : users) {
-                        System.out.println("This user's id" + user.getUniqueId());
                         if (user.getUniqueId() == userId) {
                             user.addUserBook(tempBook);
                             break;
@@ -141,8 +137,9 @@ public class Data {
 
         this.books = books;
 
-        Log.i("Book Name", books.get(0).getGiver().getName().getFullName());
+        this.sortBooks();
 
+        Log.i("Sorted Books", this.books.toString());
 
     }
 
@@ -157,19 +154,8 @@ public class Data {
 
     }
 
-    public void writeUsers() {
-
-        File uFile = new File("com/example/booksmart/Data/Users.csv");
-
-        try (FileWriter fw = new FileWriter(uFile)) {
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public ArrayList<Categories> getCategories() {
-        return new ArrayList<>(Arrays.asList(Categories.values()));
+    public ArrayList<String> getCategories() {
+        return new ArrayList<>(Arrays.asList(Data.categories));
     }
 
     public int getRandomUniqueUserId() {
@@ -241,12 +227,32 @@ public class Data {
         return null;
     }
 
-    public boolean checkPassword(String emailId, String password) {
+    public void sortBooks() {
 
-        User user = this.getUserByEmail(emailId);
-        return checkPassword(user, password);
+        ArrayList<Book> temp = new ArrayList<>();
+        ArrayList<Book> current = this.books;
+
+        while (current.size() > 1) {
+            Book min = current.get(0);
+            int index = 0, i = 0;
+            for (Book book : current) {
+                if (book.compareTo(min) < 0) {
+                    min = book;
+                    i = index;
+                }
+                index++;
+            }
+            Log.i("Max", min.getName());
+            current.remove(i);
+            temp.add(min);
+            Log.i("Current", current.toString());
+            Log.i("temp", temp.toString());
+        }
+
+        this.books = temp;
 
     }
+
 
     public boolean checkPassword(User user, String password) {
 
@@ -257,6 +263,8 @@ public class Data {
         return false;
 
     }
+
+
 
     public void removeBook(Book book) {
         this.books.remove(book);

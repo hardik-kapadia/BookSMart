@@ -25,7 +25,7 @@ public class Person {
             default:
                 this.firstName = nameParts[0];
                 for (int i = 1; i < nameParts.length; i++) {
-                    this.lastName += nameParts[i];
+                    this.lastName += " " + nameParts[i];
                 }
         }
 
@@ -74,8 +74,8 @@ public class Person {
 
         Person toCompare = (Person) o;
 
-        return fullName.toLowerCase().contains(toCompare.getFullName().toLowerCase()) || fullName.toLowerCase().contains(toCompare.getFirstName().toLowerCase())
-                || fullName.toLowerCase().contains(toCompare.getLastName().toLowerCase());
+        return fullName.toLowerCase().contains(toCompare.getFullName().toLowerCase()) || (fullName.toLowerCase().contains(toCompare.getFirstName().toLowerCase()) && !toCompare.getFirstName().isEmpty())
+                || (fullName.toLowerCase().contains(toCompare.getLastName().toLowerCase()) && !toCompare.getLastName().isEmpty());
 
     }
 }

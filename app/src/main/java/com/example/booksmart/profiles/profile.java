@@ -1,10 +1,11 @@
-package com.example.booksmart.home;
+package com.example.booksmart.profiles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,8 +13,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.booksmart.Elements.Book;
+import com.example.booksmart.Elements.BookAdapter;
 import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
+import com.example.booksmart.home.Home;
+import com.example.booksmart.home.Search;
+import com.example.booksmart.home.give;
 
 public class profile extends AppCompatActivity {
 
@@ -42,18 +47,17 @@ public class profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         ListView userBooksList = findViewById(R.id.userBooks);
-        ArrayAdapter<Book> userBooks = new ArrayAdapter<>(this, R.layout.activity_listview, MainActivity.data.getCurrentUser().getUserBooks());
+        ArrayAdapter<Book> userBooks = new BookAdapter(this, 0, MainActivity.data.getCurrentUser().getUserBooks());
         userBooksList.setAdapter(userBooks);
-        userBooksList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        userBooksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Book b = (Book) parent.getItemAtPosition(position);
-                
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+                Intent i = new Intent(profile.this, BookProfile.class);
+                i.putExtra("bookId", b.getUniqueId());
+                Log.i("Going to book", b.getName());
+                startActivity(i);
             }
         });
 

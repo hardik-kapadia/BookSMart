@@ -17,6 +17,10 @@ import com.example.booksmart.home.Home;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+class example {
+    public static int a;
+}
+
 public class SignUp extends AppCompatActivity {
 
     public static boolean validateEmail(String emailStr) {
@@ -31,6 +35,9 @@ public class SignUp extends AppCompatActivity {
             if (!Character.isDigit(c)) {
                 return null;
             }
+        }
+        if (phone.length() != 10) {
+            return null;
         }
         return phone;
     }

@@ -1,12 +1,14 @@
-package com.example.booksmart.Elements;
+package com.example.booksmart.profiles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.booksmart.Elements.Book;
 import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
 
@@ -27,18 +29,27 @@ public class BookProfile extends AppCompatActivity {
                 TextView bName = findViewById(R.id.name);
                 TextView bAuthor = findViewById(R.id.bAuthor);
                 TextView bYear = findViewById(R.id.bYear);
+                TextView bCat = findViewById(R.id.bCat);
 
                 TextView giverFName = findViewById(R.id.giverFName1);
-                TextView giverLName = findViewById(R.id.giverLName);
                 TextView giverEmail = findViewById(R.id.giverEmail);
                 TextView giverMobile = findViewById(R.id.giverMobile);
+
+                Button remover = (Button) findViewById(R.id.removeButton);
+                remover.setEnabled(false);
+
+                if (MainActivity.data.getCurrentUser().getUniqueId() == book.getGiverId()) {
+                    remover.setEnabled(true);
+                }
+
+                Log.i("Remove Button", Boolean.toString(remover.isEnabled()));
 
                 bName.setText(book.getName());
                 bAuthor.setText(book.getAuthor().getFullName());
                 bYear.setText(Integer.toString(book.getYear()));
+                bCat.setText(book.getCategory());
 
-                giverFName.setText(book.getGiver().getName().getFirstName());
-                giverLName.setText(book.getGiver().getName().getLastName());
+                giverFName.setText(book.getGiver().getName().getFullName());
                 giverEmail.setText(book.getGiver().getEmail());
                 giverMobile.setText(Long.toString(book.getGiver().getMobile()));
 

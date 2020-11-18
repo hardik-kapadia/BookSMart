@@ -3,6 +3,7 @@ package com.example.booksmart.entry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,22 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.booksmart.DataRead.Data;
-import com.example.booksmart.Elements.Book;
-import com.example.booksmart.Elements.Categories;
-import com.example.booksmart.People.Person;
 import com.example.booksmart.People.User;
 import com.example.booksmart.R;
 import com.example.booksmart.home.Home;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
-    Button login, signUp;
     TextView userNameField, passWordField;
 
     public static Data data = null;
@@ -80,9 +71,6 @@ public class MainActivity extends AppCompatActivity {
             data = new Data(getApplicationContext());
             data.readUsersFromRes();
             data.readBooksFromRes();
-            Log.i("data", "Initializing");
-            Log.i("Size of Users", Integer.toString(data.getAllUsers().size()));
-            Log.i("Size of Books", Integer.toString(data.getAllBooks().size()));
         }
 
     }

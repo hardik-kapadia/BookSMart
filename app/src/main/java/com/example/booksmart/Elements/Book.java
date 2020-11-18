@@ -13,9 +13,9 @@ public class Book {
     private final int uniqueId;
     private final int giverId;
 
-    Categories category;
+    String category;
 
-    public Book(String name, Person author, User giver, int year, int uniqueId, Categories category) {
+    public Book(String name, Person author, User giver, int year, int uniqueId, String category) {
         this.name = name;
         this.author = author;
         this.giver = giver;
@@ -25,12 +25,11 @@ public class Book {
         this.category = category;
     }
 
-
     public String getCategory() {
-        return category.toString();
+        return category;
     }
 
-    public Book(String name, Person author, int year, int uniqueId, int giverId, Categories category) {
+    public Book(String name, Person author, int year, int uniqueId, int giverId, String category) {
         this.name = name;
         this.author = author;
         this.year = year;
@@ -42,7 +41,6 @@ public class Book {
 
         if (MainActivity.data.getAllUsers() != null) {
             for (User user : MainActivity.data.getAllUsers()) {
-                System.out.println("IN BOOK, this user's id: " + giverId);
                 if (user.getUniqueId() == giverId) {
                     giving = user;
                     break;
@@ -113,7 +111,13 @@ public class Book {
     }
 
     public Boolean matches(String searched) {
-        return (this.name.toLowerCase().contains(searched.toLowerCase()) || this.author.equals(new Person(searched)));
+        boolean nameMatches = this.name.toLowerCase().contains(searched.toLowerCase());
+        boolean authorMatches = this.author.equals(new Person(searched));
+        return nameMatches || authorMatches;
     }
 
+
+    public int compareTo(Book b) {
+        return this.getName().compareToIgnoreCase(b.getName());
+    }
 }
