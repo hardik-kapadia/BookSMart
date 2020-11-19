@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,6 +40,11 @@ public class profile extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void signOut(View view) {
+        i = new Intent(this, MainActivity.class);
+        startActivity(i);
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +56,12 @@ public class profile extends AppCompatActivity {
         ArrayAdapter<Book> userBooks = new BookAdapter(this, 0, MainActivity.data.getCurrentUser().getUserBooks());
         userBooksList.setAdapter(userBooks);
 
-        userBooksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Book b = (Book) parent.getItemAtPosition(position);
-                Intent i = new Intent(profile.this, BookProfile.class);
-                i.putExtra("bookId", b.getUniqueId());
-                Log.i("Going to book", b.getName());
-                startActivity(i);
-            }
+        userBooksList.setOnItemClickListener((parent, view, position, id) -> {
+            Book b = (Book) parent.getItemAtPosition(position);
+            Intent i = new Intent(profile.this, BookProfile.class);
+            i.putExtra("bookId", b.getUniqueId());
+            Log.i("Going to book", b.getName());
+            startActivity(i);
         });
 
         TextView fn = findViewById(R.id.firstName);

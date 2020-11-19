@@ -23,8 +23,9 @@ public class give extends AppCompatActivity {
 
     String category;
     Spinner categorySelect;
+    User giver;
 
-    public void give(View view) {
+    public void giveBook(View view) {
 
         TextView bookN = findViewById(R.id.bookName);
         TextView authorN = findViewById(R.id.authorName);
@@ -35,7 +36,7 @@ public class give extends AppCompatActivity {
         String year = yearN.getText().toString();
 
 
-        User giver = MainActivity.data.getCurrentUser();
+        giver = MainActivity.data.getCurrentUser();
 
         if (!bookName.isEmpty()) {
             if (!authorName.isEmpty()) {

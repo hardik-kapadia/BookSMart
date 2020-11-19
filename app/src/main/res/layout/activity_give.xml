@@ -121,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:background="#2196F3"
-        android:onClick="give"
+        android:onClick="giveBook"
         android:text="Share"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"

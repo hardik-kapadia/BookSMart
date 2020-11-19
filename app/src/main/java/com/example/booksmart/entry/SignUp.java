@@ -17,10 +17,6 @@ import com.example.booksmart.home.Home;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class example {
-    public static int a;
-}
-
 public class SignUp extends AppCompatActivity {
 
     public static boolean validateEmail(String emailStr) {
@@ -44,12 +40,12 @@ public class SignUp extends AppCompatActivity {
 
     public void enter(View view) {
 
-        TextView firstN = (TextView) findViewById(R.id.fName);
-        TextView lastN = (TextView) findViewById(R.id.lName);
-        TextView emailS = (TextView) findViewById(R.id.emailID);
-        TextView numberS = (TextView) findViewById(R.id.pNumber);
-        TextView passwdS = (TextView) findViewById(R.id.passwd);
-        TextView confirmPasswdS = (TextView) findViewById(R.id.confirmPasswd);
+        TextView firstN = findViewById(R.id.fName);
+        TextView lastN = findViewById(R.id.lName);
+        TextView emailS = findViewById(R.id.emailID);
+        TextView numberS = findViewById(R.id.pNumber);
+        TextView passwdS = findViewById(R.id.passwd);
+        TextView confirmPasswdS = findViewById(R.id.confirmPasswd);
 
         String firstName = firstN.getText().toString();
         String lastName = lastN.getText().toString();
