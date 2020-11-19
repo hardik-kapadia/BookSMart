@@ -1,13 +1,13 @@
 package com.example.booksmart.profiles;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.booksmart.Elements.Book;
 import com.example.booksmart.R;

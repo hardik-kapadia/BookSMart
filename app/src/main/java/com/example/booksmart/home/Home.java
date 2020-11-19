@@ -1,16 +1,14 @@
 package com.example.booksmart.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
-import com.example.booksmart.profiles.profile;
+import com.example.booksmart.profiles.Profile;
 
 public class Home extends AppCompatActivity {
 
@@ -22,12 +20,12 @@ public class Home extends AppCompatActivity {
     }
 
     public void goToGive(View view) {
-        intent = new Intent(getApplicationContext(), give.class);
+        intent = new Intent(getApplicationContext(), Give.class);
         startActivity(intent);
     }
 
     public void goToProfile(View view) {
-        intent = new Intent(getApplicationContext(), profile.class);
+        intent = new Intent(getApplicationContext(), Profile.class);
         startActivity(intent);
     }
 

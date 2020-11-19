@@ -15,8 +15,8 @@ import java.util.ArrayList;
 
 public class BookAdapter extends ArrayAdapter<Book> {
 
-    private Context context;
-    private ArrayList<Book> booksToDisplay;
+    private final Context context;
+    private final ArrayList<Book> booksToDisplay;
 
     public BookAdapter(Context context, int resource, ArrayList<Book> booksToDisplay) {
         super(context, resource, booksToDisplay);
@@ -35,10 +35,10 @@ public class BookAdapter extends ArrayAdapter<Book> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         @SuppressLint("ViewHolder") View view = inflater.inflate(R.layout.book_layout, null);
 
-        TextView bName = (TextView) view.findViewById(R.id.nameOfB);
-        TextView bYear = (TextView) view.findViewById(R.id.year);
-        TextView bAuthor = (TextView) view.findViewById(R.id.author);
-        TextView categoryB = (TextView) view.findViewById(R.id.categoryShow);
+        TextView bName = view.findViewById(R.id.nameOfB);
+        TextView bYear = view.findViewById(R.id.year);
+        TextView bAuthor = view.findViewById(R.id.author);
+        TextView categoryB = view.findViewById(R.id.categoryShow);
 
         bName.setText(book.getName());
         bYear.setText(Integer.toString(book.getYear()));

@@ -1,7 +1,5 @@
 package com.example.booksmart.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,18 +10,21 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.booksmart.Elements.Book;
 import com.example.booksmart.People.Person;
 import com.example.booksmart.People.User;
 import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
-import com.example.booksmart.profiles.profile;
+import com.example.booksmart.profiles.Profile;
 
-public class give extends AppCompatActivity {
+public class Give extends AppCompatActivity {
 
     String category;
     Spinner categorySelect;
     User giver;
+    Intent i;
 
     public void giveBook(View view) {
 
@@ -60,8 +61,6 @@ public class give extends AppCompatActivity {
 
     }
 
-    Intent i;
-
     public void goToHome(View view) {
         i = new Intent(this, Home.class);
         startActivity(i);
@@ -73,7 +72,7 @@ public class give extends AppCompatActivity {
     }
 
     public void goToProfile(View view) {
-        i = new Intent(this, profile.class);
+        i = new Intent(this, Profile.class);
         startActivity(i);
     }
 
@@ -97,7 +96,7 @@ public class give extends AppCompatActivity {
                 String selected = parent.getItemAtPosition(position).toString();
                 tempCat[0] = selected;
                 Log.i("Category Selected", tempCat[0]);
-                give.this.category = tempCat[0];
+                Give.this.category = tempCat[0];
             }
 
             @Override

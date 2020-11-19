@@ -25,10 +25,6 @@ public class Book {
         this.category = category;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
     public Book(String name, Person author, int year, int uniqueId, int giverId, String category) {
         this.name = name;
         this.author = author;
@@ -56,6 +52,10 @@ public class Book {
 
         this.giver = giving;
 
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     @Override

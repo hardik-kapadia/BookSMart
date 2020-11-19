@@ -15,16 +15,16 @@ import com.example.booksmart.Elements.Book;
 import com.example.booksmart.Elements.BookAdapter;
 import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
+import com.example.booksmart.home.Give;
 import com.example.booksmart.home.Home;
 import com.example.booksmart.home.Search;
-import com.example.booksmart.home.give;
 
-public class profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
 
     Intent i;
 
     public void goToGive(View view) {
-        i = new Intent(getApplicationContext(), give.class);
+        i = new Intent(getApplicationContext(), Give.class);
         startActivity(i);
     }
 
@@ -56,7 +56,7 @@ public class profile extends AppCompatActivity {
 
         userBooksList.setOnItemClickListener((parent, view, position, id) -> {
             Book b = (Book) parent.getItemAtPosition(position);
-            Intent i = new Intent(profile.this, BookProfile.class);
+            Intent i = new Intent(Profile.this, BookProfile.class);
             i.putExtra("bookId", b.getUniqueId());
             Log.i("Going to book", b.getName());
             startActivity(i);

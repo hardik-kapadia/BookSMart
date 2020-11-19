@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".profiles.BookProfile"></activity>
-        <activity android:name=".home.give" />
+        <activity android:name=".home.Give" />
         <activity android:name=".home.Search" />
-        <activity android:name=".profiles.profile" />
+        <activity android:name=".profiles.Profile" />
         <activity android:name=".home.Home" />
         <activity android:name=".entry.SignUp" />
         <activity android:name=".entry.MainActivity">

@@ -1,7 +1,5 @@
 package com.example.booksmart.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,12 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.booksmart.Elements.Book;
 import com.example.booksmart.Elements.BookAdapter;
-import com.example.booksmart.profiles.BookProfile;
 import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
-import com.example.booksmart.profiles.profile;
+import com.example.booksmart.profiles.BookProfile;
+import com.example.booksmart.profiles.Profile;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ public class Search extends AppCompatActivity {
     Intent i;
 
     public void goToGive(View view) {
-        i = new Intent(getApplicationContext(), give.class);
+        i = new Intent(getApplicationContext(), Give.class);
         startActivity(i);
     }
 
@@ -37,7 +37,7 @@ public class Search extends AppCompatActivity {
     }
 
     public void goToProfile(View view) {
-        i = new Intent(this, profile.class);
+        i = new Intent(this, Profile.class);
         startActivity(i);
     }
 

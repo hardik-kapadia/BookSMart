@@ -3,7 +3,7 @@ package com.example.booksmart.People;
 public class Person {
 
     private String firstName, lastName;
-    private String fullName;
+    private final String fullName;
 
     public Person(String name) {
 

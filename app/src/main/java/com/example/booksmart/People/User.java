@@ -11,7 +11,7 @@ public class User {
     private final String email;
     private final long mobile;
     private String password;
-    private ArrayList<Book> userBooks;
+    private final ArrayList<Book> userBooks;
 
     public User(Person name, String email, long mobile, String password, int id) {
         this.name = name;

@@ -9,25 +9,20 @@ import com.example.booksmart.People.User;
 import com.example.booksmart.R;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Random;
 
 public class Data {
 
+    private static final String[] categories = {"Fiction", "Academics", "Self-Help", "Classics"};
+    private final Context context;
     private ArrayList<User> users;
     private ArrayList<Book> books;
-    private final Context context;
-
     private User currentUser;
-
-    private static final String[] categories = {"Fiction", "Academics", "Self-Help", "Classics"};
 
     public Data(Context context) {
         this.users = new ArrayList<>();
@@ -38,10 +33,6 @@ public class Data {
 
     public void setUsers(ArrayList<User> users) {
         this.users = users;
-    }
-
-    public void setCurrentUser(User user) {
-        this.currentUser = user;
     }
 
     public void setBooks(ArrayList<Book> books) {
@@ -190,7 +181,6 @@ public class Data {
         }
     }
 
-
     public ArrayList<User> getAllUsers() {
         return new ArrayList<>(this.users);
     }
@@ -244,7 +234,6 @@ public class Data {
 
     }
 
-
     public boolean checkPassword(User user, String password) {
 
         if (user != null) {
@@ -255,14 +244,16 @@ public class Data {
 
     }
 
-
-
     public void removeBook(Book book) {
         this.books.remove(book);
     }
 
     public User getCurrentUser() {
         return this.currentUser;
+    }
+
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
     }
 
 }

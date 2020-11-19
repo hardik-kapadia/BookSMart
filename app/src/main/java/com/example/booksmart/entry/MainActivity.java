@@ -1,16 +1,13 @@
-
 package com.example.booksmart.entry;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.booksmart.DataRead.Data;
 import com.example.booksmart.People.User;
@@ -19,14 +16,13 @@ import com.example.booksmart.home.Home;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView userNameField, passWordField;
-
     public static Data data = null;
+    TextView userNameField, passWordField;
 
     public void login(View view) {
 
-        userNameField = (TextView) findViewById(R.id.getUserName);
-        passWordField = (TextView) findViewById(R.id.getPassword);
+        userNameField = findViewById(R.id.getUserName);
+        passWordField = findViewById(R.id.getPassword);
 
         String usernameTemp = userNameField.getText().toString();
         String passwordTemp = passWordField.getText().toString();
