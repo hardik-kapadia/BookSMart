@@ -207,15 +207,6 @@ public class Data {
         this.books.add(book);
     }
 
-    public User getUserById(int id) {
-        for (User user : this.users) {
-            if (user.getUniqueId() == id) {
-                return user;
-            }
-        }
-        return null;
-    }
-
     public User getUserByEmail(String emailId) {
 
         for (User user : this.users) {

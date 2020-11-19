@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:background="#2196F3"
+        android:onClick="removeBook"
         android:text="Remove"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
