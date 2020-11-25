@@ -28,10 +28,8 @@ public class BookAdapter extends ArrayAdapter<Book> {
     @SuppressLint("SetTextI18n")
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        //get the property we are displaying
         Book book = booksToDisplay.get(position);
 
-        //get the inflater and inflate the XML layout for each item
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         @SuppressLint("ViewHolder") View view = inflater.inflate(R.layout.book_layout, null);
 
@@ -41,6 +39,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         TextView categoryB = view.findViewById(R.id.categoryShow);
 
         bName.setText(book.getName());
+
         bYear.setText(Integer.toString(book.getYear()));
         bAuthor.setText(book.getAuthor().getFullName());
         categoryB.setText(book.getCategory());

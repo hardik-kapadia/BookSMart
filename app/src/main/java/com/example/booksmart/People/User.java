@@ -9,11 +9,11 @@ public class User {
     private final int uniqueId;
     private final Person name;
     private final String email;
-    private final long mobile;
+    private final String mobile;
     private String password;
     private final ArrayList<Book> userBooks;
 
-    public User(Person name, String email, long mobile, String password, int id) {
+    public User(Person name, String email, String mobile, String password, int id) {
         this.name = name;
         this.email = email;
         this.mobile = mobile;
@@ -50,7 +50,7 @@ public class User {
         return email;
     }
 
-    public long getMobile() {
+    public String getMobile() {
         return mobile;
     }
 

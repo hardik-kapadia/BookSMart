@@ -1,6 +1,7 @@
 package com.example.booksmart.profiles;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ public class BookProfile extends AppCompatActivity {
 
     public void removeBook(View view) {
         MainActivity.data.removeBook(book);
+        MainActivity.data.getCurrentUser().removeBook(book);
     }
 
     @SuppressLint("SetTextI18n")
@@ -30,6 +32,7 @@ public class BookProfile extends AppCompatActivity {
         int bookId = getIntent().getIntExtra("bookId", -1);
         Button remover = findViewById(R.id.removeButton);
         remover.setEnabled(false);
+        remover.setBackgroundColor(Color.parseColor("#404040"));
 
         if (bookId != -1) {
             book = MainActivity.data.getBookFromId(bookId);
@@ -45,6 +48,7 @@ public class BookProfile extends AppCompatActivity {
 
                 if (MainActivity.data.getCurrentUser().getUniqueId() == book.getGiverId()) {
                     remover.setEnabled(true);
+                    remover.setBackgroundColor(Color.parseColor("#2196F3"));
                 }
 
                 Log.i("Remove Button", Boolean.toString(remover.isEnabled()));
@@ -56,7 +60,7 @@ public class BookProfile extends AppCompatActivity {
 
                 giverFName.setText(book.getGiver().getName().getFullName());
                 giverEmail.setText(book.getGiver().getEmail());
-                giverMobile.setText(Long.toString(book.getGiver().getMobile()));
+                giverMobile.setText(book.getGiver().getMobile());
 
             } else {
                 Log.i("Book ID received", "Invalid");

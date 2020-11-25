@@ -23,25 +23,26 @@ public class Data {
     private ArrayList<User> users;
     private ArrayList<Book> books;
     private User currentUser;
+    // private CRUDMySQL mysqlReader;
 
     public Data(Context context) {
         this.users = new ArrayList<>();
         this.books = new ArrayList<>();
         this.currentUser = null;
         this.context = context;
+        // this.mysqlReader = new CRUDMySQL();
     }
 
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
-    }
-
-    public void setBooks(ArrayList<Book> books) {
-        this.books = books;
-    }
 
     public void readUsersFromRes() {
 
         ArrayList<User> users = new ArrayList<>();
+
+        /*try {
+            mysqlReader.readFromDatabase();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
 
         InputStream isr = this.context.getResources().openRawResource(R.raw.users);
         BufferedReader reader = new BufferedReader(new InputStreamReader(isr));
@@ -56,19 +57,12 @@ public class Data {
 
                 int id = Integer.parseInt(parts[0]);
                 String email = parts[1];
-                long mobile = Long.parseLong(parts[2]);
+                String mobile = parts[2];
                 String pw = parts[3];
 
                 String name = parts[4];
 
-                users.add(
-                        new User(
-                                new Person(
-                                        name
-                                ),
-                                email, mobile, pw, id
-                        )
-                );
+                users.add(new User(new Person(name), email, mobile, pw, id));
             }
         } catch (IOException e) {
             Log.wtf("Reading Users", "Error");
@@ -87,7 +81,6 @@ public class Data {
 
         String line;
 
-        // Categories[] allCategories = Categories.values();
 
         try {
             while (true) {
@@ -105,7 +98,7 @@ public class Data {
                     String name = parts[3].replace("$", ",").trim();
                     Person author = new Person(parts[4].trim());
 
-                    String category = Data.categories[Integer.parseInt(parts[5])];
+                    String category = Data.categories[Integer.parseInt(parts[5]) -1];
 
                     Book tempBook = new Book(name, author, year, bookId, userId, category);
 

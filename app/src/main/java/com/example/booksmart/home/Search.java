@@ -56,8 +56,7 @@ public class Search extends AppCompatActivity {
             }
         } else {
             matching = new ArrayList<>(MainActivity.data.getAllBooks());
-            System.out.println(MainActivity.data.getAllBooks().toString());
-            Log.i("Serach parameter", "is empty");
+            Log.i("Search parameter", "is empty");
         }
 
         ArrayAdapter<Book> resultVals = new BookAdapter(this, 0, matching);

@@ -7,6 +7,19 @@
     tools:context="com.example.booksmart.entry.MainActivity">
 
     <EditText
+        android:id="@+id/getUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="257dp"
+        android:layout_toEndOf="@+id/userTitle"
+        android:ems="10"
+        android:hint="Email-Id"
+        android:inputType="textPersonName"
+        android:minWidth="120dp" />
+
+    <EditText
         android:id="@+id/getPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,33 +40,10 @@
         android:layout_marginStart="160dp"
         android:layout_marginTop="45dp"
         android:background="#03A9F4"
+        android:minWidth="120dp"
         android:onClick="login"
         android:text="Login"
         android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/pwTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userTitle"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="36dp"
-        android:text="Password:"
-        android:textColor="#000000"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/getUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="257dp"
-        android:layout_toEndOf="@+id/userTitle"
-        android:ems="10"
-        android:hint="Email-Id"
-        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/signUp"
@@ -77,6 +67,18 @@
         android:layout_marginStart="43dp"
         android:layout_marginTop="265dp"
         android:text="Username:"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/pwTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="36dp"
+        android:text="Password:"
         android:textColor="#000000"
         android:textSize="18sp" />
 

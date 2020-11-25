@@ -70,7 +70,7 @@ public class Profile extends AppCompatActivity {
         fn.setText(MainActivity.data.getCurrentUser().getName().getFirstName());
         ln.setText(MainActivity.data.getCurrentUser().getName().getLastName());
         email.setText(MainActivity.data.getCurrentUser().getEmail());
-        phone.setText(Long.toString(MainActivity.data.getCurrentUser().getMobile()));
+        phone.setText(MainActivity.data.getCurrentUser().getMobile());
 
     }
 }

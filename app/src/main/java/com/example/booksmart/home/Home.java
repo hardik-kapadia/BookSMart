@@ -10,6 +10,8 @@ import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
 import com.example.booksmart.profiles.Profile;
 
+import java.io.IOException;
+
 public class Home extends AppCompatActivity {
 
     Intent intent;

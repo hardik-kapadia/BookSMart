@@ -1,2 +1,5 @@
+include ':mysql-connector-java-8.0.22'
+include ':mysql-connector-java-8.0.22'
+include ':mssql-jdbc-8.4.1.jre11'
 include ':app'
 rootProject.name = "BooksMart"
