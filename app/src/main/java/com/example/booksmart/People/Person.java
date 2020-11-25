@@ -74,7 +74,8 @@ public class Person {
 
         Person toCompare = (Person) o;
 
-        return fullName.toLowerCase().contains(toCompare.getFullName().toLowerCase()) || (fullName.toLowerCase().contains(toCompare.getFirstName().toLowerCase()) && !toCompare.getFirstName().isEmpty())
+        return fullName.toLowerCase().contains(toCompare.getFullName().toLowerCase()) ||
+                (fullName.toLowerCase().contains(toCompare.getFirstName().toLowerCase()) && !toCompare.getFirstName().isEmpty())
                 || (fullName.toLowerCase().contains(toCompare.getLastName().toLowerCase()) && !toCompare.getLastName().isEmpty());
 
     }

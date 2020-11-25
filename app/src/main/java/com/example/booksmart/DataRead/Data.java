@@ -96,11 +96,12 @@ public class Data {
 
                     int year = Integer.parseInt(parts[2].trim());
                     String name = parts[3].replace("$", ",").trim();
-                    Person author = new Person(parts[4].trim());
+                    Person author = new Person(parts[4].trim().replace(".", ""));
 
-                    String category = Data.categories[Integer.parseInt(parts[5]) -1];
+                    String category = Data.categories[Integer.parseInt(parts[5]) - 1];
 
                     Book tempBook = new Book(name, author, year, bookId, userId, category);
+                    System.out.println(tempBook.toString());
 
                     books.add(tempBook);
                     for (User user : users) {
@@ -111,7 +112,7 @@ public class Data {
                     }
 
                 } else {
-                    throw new IllegalArgumentException();
+                    Log.i("Too many Arguements", Integer.toString(parts.length));
                 }
             }
         } catch (IOException e) {
@@ -188,6 +189,7 @@ public class Data {
 
     public void addBook(Book book) {
         this.books.add(book);
+        this.sortBooks();
     }
 
     public User getUserByEmail(String emailId) {
@@ -238,7 +240,9 @@ public class Data {
     }
 
     public void removeBook(Book book) {
+        System.out.println("Book being removed: " + book.getName());
         this.books.remove(book);
+        System.out.println("After removal: " + this.books.toString());
     }
 
     public User getCurrentUser() {

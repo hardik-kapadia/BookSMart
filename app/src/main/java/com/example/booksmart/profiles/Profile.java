@@ -63,12 +63,10 @@ public class Profile extends AppCompatActivity {
         });
 
         TextView fn = findViewById(R.id.firstName);
-        TextView ln = findViewById(R.id.lastN);
         TextView email = findViewById(R.id.email);
         TextView phone = findViewById(R.id.phone);
 
-        fn.setText(MainActivity.data.getCurrentUser().getName().getFirstName());
-        ln.setText(MainActivity.data.getCurrentUser().getName().getLastName());
+        fn.setText(MainActivity.data.getCurrentUser().getName().getFirstName() + " " + MainActivity.data.getCurrentUser().getName().getLastName());
         email.setText(MainActivity.data.getCurrentUser().getEmail());
         phone.setText(MainActivity.data.getCurrentUser().getMobile());
 

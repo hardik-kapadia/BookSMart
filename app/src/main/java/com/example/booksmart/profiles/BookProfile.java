@@ -1,6 +1,7 @@
 package com.example.booksmart.profiles;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,10 @@ public class BookProfile extends AppCompatActivity {
     public void removeBook(View view) {
         MainActivity.data.removeBook(book);
         MainActivity.data.getCurrentUser().removeBook(book);
+        Log.i("Book removed: ", book.getName());
+        Log.i("Books after removal", MainActivity.data.getAllBooks().toString());
+        Intent i = new Intent(this, Profile.class);
+        startActivity(i);
     }
 
     @SuppressLint("SetTextI18n")
@@ -30,8 +35,10 @@ public class BookProfile extends AppCompatActivity {
         setContentView(R.layout.activity_book_profile);
 
         int bookId = getIntent().getIntExtra("bookId", -1);
+
         Button remover = findViewById(R.id.removeButton);
         remover.setEnabled(false);
+        remover.setAlpha(0.8f);
         remover.setBackgroundColor(Color.parseColor("#404040"));
 
         if (bookId != -1) {
@@ -49,6 +56,7 @@ public class BookProfile extends AppCompatActivity {
                 if (MainActivity.data.getCurrentUser().getUniqueId() == book.getGiverId()) {
                     remover.setEnabled(true);
                     remover.setBackgroundColor(Color.parseColor("#2196F3"));
+                    remover.setAlpha(1.0f);
                 }
 
                 Log.i("Remove Button", Boolean.toString(remover.isEnabled()));

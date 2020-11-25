@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">BooksMart</string>
     <string name="category_prompt">Choose a Category</string>
-    <string name="appIntro">Book S Mart is a place where \npeople can exchange used and new\nbooks of all types.\n\nEvery year millions of books\nare sent to recycling although they can be used again\n\nOur goal is to provide these books to those in need as well as Help the environment</string>
+    <string name="appIntro">Book S Mart is a place where \npeople can exchange used and new\nbooks of all types.\n\nEvery year millions of books\nare sent to recycling as plain\npaper although they can be used again\n\nOur goal is to provide these books to \nthose in need as well as Help the \nenvironment by reducing paper usage</string>
 
     <string-array name="Category_arrays">
         <item>fiction</item>

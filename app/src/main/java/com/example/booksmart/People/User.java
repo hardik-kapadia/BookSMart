@@ -1,7 +1,6 @@
 package com.example.booksmart.People;
 
 import com.example.booksmart.Elements.Book;
-
 import java.util.ArrayList;
 
 public class User {
