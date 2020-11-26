@@ -2,6 +2,7 @@ package com.example.booksmart.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.booksmart.R;
 import com.example.booksmart.entry.MainActivity;
 import com.example.booksmart.profiles.Profile;
-
-import java.io.IOException;
 
 public class Home extends AppCompatActivity {
 
@@ -42,6 +41,8 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Log.i("User's books", MainActivity.data.getCurrentUser().getUserBooks().toString());
 
     }
 }

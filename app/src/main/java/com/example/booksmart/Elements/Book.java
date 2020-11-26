@@ -88,11 +88,6 @@ public class Book {
     }
 
     @Override
-    public String toString() {
-        return this.name + " ";
-    }
-
-    @Override
     public boolean equals(Object obj) {
 
         if (this == obj) {
@@ -116,6 +111,10 @@ public class Book {
         return nameMatches || authorMatches;
     }
 
+    @Override
+    public String toString() {
+        return this.uniqueId + ". " + this.name;
+    }
 
     public int compareTo(Book b) {
         return this.getName().compareToIgnoreCase(b.getName());

@@ -122,15 +122,13 @@ public class Data {
 
         this.books = books;
 
-        this.sortBooks();
-
         Log.i("Sorted Books", this.books.toString());
 
     }
 
     public Book getBookFromId(int id) {
 
-        for (Book book : books) {
+        for (Book book : this.books) {
             if (book.getUniqueId() == id) {
                 return book;
             }
@@ -189,7 +187,6 @@ public class Data {
 
     public void addBook(Book book) {
         this.books.add(book);
-        this.sortBooks();
     }
 
     public User getUserByEmail(String emailId) {
@@ -201,32 +198,6 @@ public class Data {
         }
 
         return null;
-    }
-
-    public void sortBooks() {
-
-        ArrayList<Book> temp = new ArrayList<>();
-        ArrayList<Book> current = this.books;
-
-        while (current.size() > 1) {
-            Book min = current.get(0);
-            int index = 0, i = 0;
-            for (Book book : current) {
-                if (book.compareTo(min) < 0) {
-                    min = book;
-                    i = index;
-                }
-                index++;
-            }
-            Log.i("Max", min.getName());
-            current.remove(i);
-            temp.add(min);
-            Log.i("Current", current.toString());
-            Log.i("temp", temp.toString());
-        }
-
-        this.books = temp;
-
     }
 
     public boolean checkPassword(User user, String password) {

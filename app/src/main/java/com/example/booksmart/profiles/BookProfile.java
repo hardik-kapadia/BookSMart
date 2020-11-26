@@ -71,7 +71,8 @@ public class BookProfile extends AppCompatActivity {
                 giverMobile.setText(book.getGiver().getMobile());
 
             } else {
-                Log.i("Book ID received", "Invalid");
+                Log.i("Book ID received", "Invalid: " + bookId);
+                Log.i("All books are", MainActivity.data.getAllBooks().toString());
             }
         } else {
             Log.i("Book received", "NULL");
