@@ -15,7 +15,7 @@ public class Book {
 
     String category;
 
-    public Book(String name, Person author, User giver, int year, int uniqueId, String category) {
+    public Book(String name, Person author, User giver, int year, int uniqueId, String category) throws IllegalArgumentException {
         this.name = name;
         this.author = author;
         this.giver = giver;
@@ -25,7 +25,7 @@ public class Book {
         this.category = category;
     }
 
-    public Book(String name, Person author, int year, int uniqueId, int giverId, String category) {
+    public Book(String name, Person author, int year, int uniqueId, int giverId, String category) throws IllegalArgumentException {
         this.name = name;
         this.author = author;
         this.year = year;
