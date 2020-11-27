@@ -17,7 +17,7 @@ class CRUDMySQL {
         try {
             String url = "jdbc:mysql://localhost:3306//javaproject";
             String uname = "root";
-            String pass = "Mvvsashank1!";
+            String pass = "password123";
             String query = "insert into users (?,?,?,?,?,?)";
             int uniqueId = a.getUniqueId();
             Person name = a.getName();
